@@ -206,5 +206,16 @@ class SearchApiSolrAnySchemaBackend extends SearchApiSolrBackend {
     }
     return $this->fieldNames[$index->id()];
   }
-
+  
+  /**
+   * Creates an ID used as the unique identifier at the Solr server.
+   *
+   * This has to consist of both index and item ID. Optionally, the site hash is
+   * also included.
+   *
+   * @see \Drupal\search_api_solr\Utility\Utility::getSiteHash()
+   */
+  protected function createId($index_id, $item_id) {
+    return $item_id;
+  }
 }
